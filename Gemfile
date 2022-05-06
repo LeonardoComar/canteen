@@ -17,6 +17,8 @@ gem 'nokogiri', '>= 1.13.4'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 6.0.0.rc1'
+  gem 'capybara', '~> 3.36'
 end
 
 group :development do

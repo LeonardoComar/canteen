@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_181800) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_143707) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "human_resources", force: :cascade do |t|
     t.string "name"
     t.string "phone"
-    t.string "matriculation_code"
-    t.string "email"
+    t.string "document"
     t.string "status"
-    t.string "birth_date"
+    t.date "birth_date"
     t.bigint "role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

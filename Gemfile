@@ -15,6 +15,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'nokogiri', '>= 1.13.4'
 gem 'devise'
+gem "str_enum"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

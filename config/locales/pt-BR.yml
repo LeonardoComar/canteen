@@ -12,6 +12,12 @@ pt-BR:
       role:
         one: Cargo
         other: Cargos
+      permission:
+        one: Permissão
+        other: Permissões
+      human_resource:
+        one: Recurso Humano
+        other: Recursos Humanos
     attributes:
       user:
         confirmation_sent_at: Confirmação enviada em
@@ -41,8 +47,20 @@ pt-BR:
         name: Nome
         status: Status
       role:
-        name: Função
+        name: Nome
         status: Status
+      permission:
+        name: Nome
+        category: Categoria
+        internal_name: Nome Interno
+      human_resource:
+        name: Nome
+        phone: Telefone
+        document: CPF
+        status: Status
+        birth_date: Data de Nascimento
+        role: Cargo
+        role_id: Cargo
 
     errors:
       messages:

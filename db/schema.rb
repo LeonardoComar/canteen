@@ -10,9 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_06_190325) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_181800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "human_resources", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "matriculation_code"
+    t.string "email"
+    t.string "status"
+    t.string "birth_date"
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_human_resources_on_role_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "internal_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "permissions_roles", force: :cascade do |t|
+    t.bigint "permission_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permission_id"], name: "index_permissions_roles_on_permission_id"
+    t.index ["role_id"], name: "index_permissions_roles_on_role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,8 +67,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_06_190325) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "human_resource_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["human_resource_id"], name: "index_users_on_human_resource_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "human_resources", "roles"
+  add_foreign_key "permissions_roles", "permissions"
+  add_foreign_key "permissions_roles", "roles"
+  add_foreign_key "users", "human_resources"
 end

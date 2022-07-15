@@ -17,9 +17,7 @@
         <div class="col-sm-auto bg-light sticky-top">
           <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
             <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-              <div class="logo">
-                <%= image_tag("logo-rd.jpeg") %>
-              </div>
+              <img src="/assets/logo-rd.jpg" style="width: 50px;height: 50px;">
             </a>
             <% if user_signed_in? %>
               <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center justify-content-between w-100 px-3 align-items-center">
@@ -33,14 +31,14 @@
                     <i class="bi-currency-dollar fs-1"></i>
                   </a>
                 </li>
+                <% if current_user.has_permission?(:customers_index) %>
+                  <li>
+                    <%= link_to '<i class="bi-people fs-1"></i>'.html_safe, main_customers_path, class: "nav-link py-3 px-2" %>
+                  </li>
+                <% end %>
                 <li>
                   <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                     <i class="bi-printer fs-1"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                    <i class="bi-people fs-1"></i>
                   </a>
                 </li>
               </ul>

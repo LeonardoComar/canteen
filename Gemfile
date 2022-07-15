@@ -16,6 +16,7 @@ gem "bootsnap", require: false
 gem 'nokogiri', '>= 1.13.4'
 gem 'devise'
 gem "str_enum"
+gem 'simple_form'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

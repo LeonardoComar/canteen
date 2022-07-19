@@ -1,32 +1,18 @@
 <%= simple_form_for [:main, @customer] do |f| %>
-  <div class='row'>
-    <div class='col-lg-12'>
-      <%= f.input :name, required: true, autofocus: true %>
-    </div>
-  </div>
+  <%= f.error_notification %>
+  <%= f.input :name, required: true, autofocus: true %>
   <br>
-  <div class='row'>
-    <div class='col-lg-12'>
-      <%= f.input :matriculation_code, required: true %>
-    </div>
-  </div>
+  <%= f.input :matriculation_code, required: true %>
   <br>
   <% unless @customer.password.present? %>
-    <div class='row'>
-      <div class='col-lg-12'>
-        <%= f.input :password, required: true %>
-      </div>
-    </div>
+    <%= f.input :password, required: true %>
     <br>
-    <div class='row'>
-      <div class='col-lg-12'>
-        <%= f.input :password_confirmation, required: true %>
-      </div>
-    </div>
+    <%= f.input :password_confirmation, required: true %>
     <br>
   <% end %>
   <div class='row'>
     <div class='col-lg-12 text-end'>
+      <%= link_to t(:cancel, scope: %i[templates buttons defaults]), main_customers_path, class: "btn btn-outline-secondary border me-2" %>
       <%= f.button :submit, I18n.t(:submit, scope: %i[simple_form]), class: "btn-primary" %>
     </div>
   </div>

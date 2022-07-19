@@ -19,7 +19,7 @@ class Main::CustomersController < ApplicationController
 
     if @customer.save!
       flash[:success] = I18n.t(:created_successfully, scope: %i[_dictionary], resource_name: I18n.t(:customer, scope: %i[activerecord models], count: 1))
-      redirect_to main_customer_path(@customer)
+      redirect_to main_customers_path
     else
       render :new
     end

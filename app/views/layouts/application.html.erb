@@ -47,7 +47,7 @@
                   <i class="bi-person-circle h2"></i>
                 </a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                  <li><%= link_to t(:sign_out, scope: %i[devise sessions destroy]), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                  <li><%= button_to t(:sign_out, scope: %i[devise sessions destroy]), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
                   <li><a class="dropdown-item" href="#">Configurações</a></li>
                   <li><a class="dropdown-item" href="#">Perfil</a></li>
                 </ul>
@@ -57,8 +57,11 @@
         </div>
         <div class="col-sm p-3 min-vh-100">
           <%= yield %>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <% if flash.present? %>
+            <% flash.each do |key, value| %>
+              <p><%= value %></p>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -4,7 +4,9 @@ pt-BR:
     name_application: Cantina Religião de Deus
     welcome_home_application: Sistema para gerenciamento de cantina
     table_is_empty: Nenhum(a) %{resource_name} Cadastrado(a)
+    add_resource: Adicionar %{resource_name}
     actions: Ações
+    created_successfully: '%{resource_name} cadastrado(a) com sucesso!'
 
   str_enum_attribute:
     defaults:
@@ -104,6 +106,9 @@ pt-BR:
         return: Voltar
         delete: Excluir
         show: Visualizar
+        cancel: Cancelar
+        inactive: Inativar
+        edit: Editar
     page_titles:
       defaults:
         access_denied: 'Acesso negado'

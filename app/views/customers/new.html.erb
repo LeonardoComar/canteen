@@ -1,6 +1,6 @@
 <div class="card">
   <h5 class="card-header"><%= t(:add_resource, scope: %i[_dictionary], resource_name: t(:customer, scope: %i[activerecord models], count: 1)) %></h5>
   <div class="card-body">
-    <%= render 'form' %>
+    <%= render 'form', customer: @customer %>
   </div>
 </div>

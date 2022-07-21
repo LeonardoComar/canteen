@@ -4,9 +4,10 @@
     <div class="d-flex justify-content-end">
       <%= link_to t(:return, scope: %i[templates buttons defaults]), root_path, class: "btn btn-outline-secondary border me-2" %>
       <% if current_user.has_permission?(:customer_new) %>
-        <%= link_to t(:add, scope: %i[templates buttons defaults]), new_main_customer_path, class: "btn btn-primary border" %>
+        <%= link_to t(:add, scope: %i[templates buttons defaults]), new_customer_path, class: "btn btn-primary border" %>
       <% end %>
     </div>
+    <p style="color: green"><%= notice %></p>
     <table class="table table-hover">
       <thead>
         <tr class="text-center">
@@ -25,7 +26,7 @@
               <th scope="row"><%= customer.id %></th>
               <td><%= customer.name %></td>
               <td><%= t(customer.active? ? :active : :inactive, scope: %i[str_enum_attribute defaults status]) %></td>
-              <td><%= link_to t(:show, scope: %i[templates buttons defaults]), main_customer_path(customer) %></td>
+              <td><%= link_to t(:show, scope: %i[templates buttons defaults]), customer_path(customer) %></td>
             </tr>
           <% end %>
         <% end %>

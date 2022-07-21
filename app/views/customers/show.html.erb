@@ -8,9 +8,9 @@
       <p class="card-text"><%= I18n.t(:credit, scope: %i[activerecord attributes customer]) %>: <%= number_to_currency @customer.credit %></p>
       <p class="card-text"><%= I18n.t(:status, scope: %i[activerecord attributes customer]) %>: <%= I18n.t(@customer.status, scope: %i[str_enum_attribute defaults status]) %></p>
       <div class='text-center'>
-        <%= link_to t(:edit, scope: %i[templates buttons defaults]), edit_main_customer_path(@customer), class: "btn btn-primary" %>
+        <%= link_to t(:edit, scope: %i[templates buttons defaults]), edit_customer_path(@customer), class: "btn btn-primary" %>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">Adicionar Crédito</button>
-        <%= link_to t(:inactive, scope: %i[templates buttons defaults]), main_customer_path(@customer), method: :delete, data: { confirm: "Você tem certeza que deseja inativar #{@customer.name}?" }, class: "btn btn-warning" %>
+        <%= link_to t(:inactive, scope: %i[templates buttons defaults]), customer_path(@customer), method: :delete, data: { confirm: "Você tem certeza que deseja inativar #{@customer.name}?" }, class: "btn btn-warning" %>
       </div>
     </div>
   </div>

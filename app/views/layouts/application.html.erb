@@ -33,7 +33,7 @@
                 </li>
                 <% if current_user.has_permission?(:customers_index) %>
                   <li>
-                    <%= link_to '<i class="bi-people fs-1"></i>'.html_safe, main_customers_path, class: "nav-link py-3 px-2" %>
+                    <%= link_to '<i class="bi-people fs-1"></i>'.html_safe, customers_path, class: "nav-link py-3 px-2" %>
                   </li>
                 <% end %>
                 <li>
@@ -56,12 +56,14 @@
           </div>
         </div>
         <div class="col-sm p-3 min-vh-100">
-          <%= yield %>
           <% if flash.present? %>
             <% flash.each do |key, value| %>
-              <p><%= value %></p>
+              <div class="alert <%= notice.present? ? 'alert-success' : 'alert-warning' %>" role="alert">
+                <%= value %>
+              </div>
             <% end %>
           <% end %>
+          <%= yield %>
         </div>
       </div>
     </div>

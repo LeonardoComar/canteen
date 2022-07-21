@@ -5,8 +5,11 @@ pt-BR:
     welcome_home_application: Sistema para gerenciamento de cantina
     table_is_empty: Nenhum(a) %{resource_name} Cadastrado(a)
     add_resource: Adicionar %{resource_name}
+    edit_resource: Editar %{resource_name}
     actions: Ações
     created_successfully: '%{resource_name} cadastrado(a) com sucesso!'
+    updated_successfully: '%{resource_name} atualizado(a) com sucesso!'
+    destroyed_successfully: '%{resource_name} excluído(a) com sucesso!'
 
   str_enum_attribute:
     defaults:
@@ -130,6 +133,8 @@ pt-BR:
       text: 'Obrigatório'
       mark: '*'
     submit: "Salvar"
+    error_notification:
+      default_message: 'Verificar erros abaixo:'
 
   devise:
     confirmations:

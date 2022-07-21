@@ -44,7 +44,7 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer.destroy
+    @customer.inactive!
 
     respond_to do |format|
       format.html { redirect_to customers_url, notice: I18n.t(:destroyed_successfully, scope: %i[_dictionary], resource_name: t(:customer, scope: %i[activerecord models], count: 1)) }
@@ -54,11 +54,11 @@ class CustomersController < ApplicationController
 
   private
 
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
 
-    def customer_params
-      params.require(:customer).permit(:name, :matriculation_code, :password, :password_confirmation, :credit, :status)
-    end
+  def customer_params
+    params.require(:customer).permit(:name, :matriculation_code, :password, :password_confirmation, :credit, :status)
+  end
 end

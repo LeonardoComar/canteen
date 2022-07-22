@@ -1,0 +1,36 @@
+<div class="card">
+  <h5 class="card-header"><%= t(:customer, scope: %i[activerecord models], count: 2) %></h5>
+  <div class="card-body">
+    <div class="d-flex justify-content-end">
+      <%= link_to t(:return, scope: %i[templates buttons defaults]), root_path, class: "btn btn-outline-secondary border me-2" %>
+      <% if current_user.has_permission?(:customer_new) %>
+        <%= link_to t(:add, scope: %i[templates buttons defaults]), new_customer_path, class: "btn btn-primary border" %>
+      <% end %>
+    </div>
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col"><%= t(:name, scope: %i[activerecord attributes customer]) %></th>
+          <th scope="col"><%= t(:status, scope: %i[activerecord attributes customer]) %></th>
+          <th scope="col"><%= t(:actions, scope: %i[_dictionary]) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @customers.empty? %>
+          <tr><td><%= t(:table_is_empty, scope: %i[_dictionary], resource_name: t(:customer, scope: %i[activerecord models], count: 1)) %></td></tr>
+        <% else %>
+          <% @customers.each do |customer| %>
+            <tr class="text-center">
+              <th scope="row"><%= customer.id %></th>
+              <td><%= customer.name %></td>
+              <td><%= t(customer.active? ? :active : :inactive, scope: %i[str_enum_attribute defaults status]) %></td>
+              <td><%= link_to t(:show, scope: %i[templates buttons defaults]), customer_path(customer) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

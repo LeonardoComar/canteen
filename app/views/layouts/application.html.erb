@@ -17,9 +17,7 @@
         <div class="col-sm-auto bg-light sticky-top">
           <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
             <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-              <div class="logo">
-                <%= image_tag("logo-rd.jpeg") %>
-              </div>
+              <img src="/assets/logo-rd.jpg" style="width: 50px;height: 50px;">
             </a>
             <% if user_signed_in? %>
               <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center justify-content-between w-100 px-3 align-items-center">
@@ -33,14 +31,19 @@
                     <i class="bi-currency-dollar fs-1"></i>
                   </a>
                 </li>
+                <div class="dropdown">
+                  <a href="#" class="d-flex align-items-center justify-content-center p-3 text-decoration-none dropdown-toggle" id="dropdownPeople" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi-people fs-1 h2"></i>
+                  </a>
+                  <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownPeople">
+                    <% if current_user.has_permission?(:customers_index) %>
+                      <li><%= link_to t(:customer, scope: %i[activerecord models], count: 2), customers_path, class: "dropdown-item" %></li>
+                    <% end %>
+                  </ul>
+                </div>
                 <li>
                   <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                     <i class="bi-printer fs-1"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                    <i class="bi-people fs-1"></i>
                   </a>
                 </li>
               </ul>
@@ -49,7 +52,7 @@
                   <i class="bi-person-circle h2"></i>
                 </a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                  <li><%= link_to t(:sign_out, scope: %i[devise sessions destroy]), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+                  <li><%= button_to t(:sign_out, scope: %i[devise sessions destroy]), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
                   <li><a class="dropdown-item" href="#">Configurações</a></li>
                   <li><a class="dropdown-item" href="#">Perfil</a></li>
                 </ul>
@@ -58,9 +61,14 @@
           </div>
         </div>
         <div class="col-sm p-3 min-vh-100">
+          <% if flash.present? %>
+            <% flash.each do |key, value| %>
+              <div class="alert <%= notice.present? ? 'alert-success' : 'alert-warning' %>" role="alert">
+                <%= value %>
+              </div>
+            <% end %>
+          <% end %>
           <%= yield %>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
         </div>
       </div>
     </div>

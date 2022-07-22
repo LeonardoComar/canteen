@@ -3,6 +3,22 @@ pt-BR:
   _dictionary:
     name_application: Cantina Religião de Deus
     welcome_home_application: Sistema para gerenciamento de cantina
+    table_is_empty: Nenhum(a) %{resource_name} Cadastrado(a)
+    add_credit: Adicionar Crédito
+    add_resource: Adicionar %{resource_name}
+    edit_resource: Editar %{resource_name}
+    actions: Ações
+    created_successfully: '%{resource_name} cadastrado(a) com sucesso!'
+    updated_successfully: '%{resource_name} atualizado(a) com sucesso!'
+    destroyed_successfully: '%{resource_name} excluído(a) com sucesso!'
+
+  str_enum_attribute:
+    defaults:
+      status:
+        active: Ativo
+        inactive: Inativo
+        available: Disponível
+        unavailable: Indisponível
 
   activerecord:
     models:
@@ -18,6 +34,9 @@ pt-BR:
       human_resource:
         one: Recurso Humano
         other: Recursos Humanos
+      customer:
+        one: Cliente
+        other: Clientes
     attributes:
       user:
         confirmation_sent_at: Confirmação enviada em
@@ -61,6 +80,13 @@ pt-BR:
         birth_date: Data de Nascimento
         role: Cargo
         role_id: Cargo
+      customer:
+        name: Nome
+        matriculation_code: Matrícula
+        password: Senha
+        password_confirmation: Confirme sua senha
+        status: Status
+        credit: Saldo
 
     errors:
       messages:
@@ -84,6 +110,9 @@ pt-BR:
         return: Voltar
         delete: Excluir
         show: Visualizar
+        cancel: Cancelar
+        inactive: Inativar
+        edit: Editar
     page_titles:
       defaults:
         access_denied: 'Acesso negado'
@@ -105,6 +134,8 @@ pt-BR:
       text: 'Obrigatório'
       mark: '*'
     submit: "Salvar"
+    error_notification:
+      default_message: 'Verificar erros abaixo:'
 
   devise:
     confirmations:

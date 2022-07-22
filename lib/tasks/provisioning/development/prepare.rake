@@ -25,9 +25,10 @@ namespace :provisioning do
       execute_system_task 'rails db:create'
       execute_system_task 'rails db:migrate'
       execute_system_task 'rails db:migrate RAILS_ENV=test'
-      execute_rake_task('provisioning:shared:dataset:roles:populate')
-      execute_rake_task('provisioning:shared:dataset:permissions:populate')
-      execute_rake_task('provisioning:shared:dataset:permissions_roles:populate')
+      execute_rake_task 'provisioning:shared:dataset:roles:populate'
+      execute_rake_task 'provisioning:shared:dataset:permissions:populate'
+      execute_rake_task 'provisioning:shared:dataset:permissions_roles:populate'
+      execute_rake_task 'provisioning:shared:dataset:dataset_base:populate'
 
       puts "#{prefix} Finished"
     end

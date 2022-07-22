@@ -2,7 +2,11 @@
 
 Rails.application.routes.draw do
   root "home#index"
-  resources :customers, path: 'clientes'
+  
+  resources :customers, path: 'clientes' do
+    get '/adicionar-credito', to: 'customers#new_credit', as: 'new_credit'
+    post '/adicionar-credito', to: 'customers#update_credit', as: 'update_credit'
+  end
   
   devise_for :users
   

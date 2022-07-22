@@ -4,6 +4,7 @@ pt-BR:
     name_application: Cantina Religião de Deus
     welcome_home_application: Sistema para gerenciamento de cantina
     table_is_empty: Nenhum(a) %{resource_name} Cadastrado(a)
+    add_credit: Adicionar Crédito
     add_resource: Adicionar %{resource_name}
     edit_resource: Editar %{resource_name}
     actions: Ações

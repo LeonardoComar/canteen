@@ -31,11 +31,16 @@
                     <i class="bi-currency-dollar fs-1"></i>
                   </a>
                 </li>
-                <% if current_user.has_permission?(:customers_index) %>
-                  <li>
-                    <%= link_to '<i class="bi-people fs-1"></i>'.html_safe, customers_path, class: "nav-link py-3 px-2" %>
-                  </li>
-                <% end %>
+                <div class="dropdown">
+                  <a href="#" class="d-flex align-items-center justify-content-center p-3 text-decoration-none dropdown-toggle" id="dropdownPeople" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi-people fs-1 h2"></i>
+                  </a>
+                  <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownPeople">
+                    <% if current_user.has_permission?(:customers_index) %>
+                      <li><%= link_to t(:customer, scope: %i[activerecord models], count: 2), customers_path, class: "dropdown-item" %></li>
+                    <% end %>
+                  </ul>
+                </div>
                 <li>
                   <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                     <i class="bi-printer fs-1"></i>

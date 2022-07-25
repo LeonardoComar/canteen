@@ -32,8 +32,8 @@ pt-BR:
         one: Permissão
         other: Permissões
       human_resource:
-        one: Recurso Humano
-        other: Recursos Humanos
+        one: Voluntário
+        other: Voluntários
       customer:
         one: Cliente
         other: Clientes
@@ -281,6 +281,7 @@ pt-BR:
       default: "%d/%m/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
+      date: "%d/%m/%Y" 
     month_names:
     - 
     - janeiro

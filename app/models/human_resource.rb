@@ -8,4 +8,8 @@ class HumanResource < ApplicationRecord
 
   validates :name, :document, :role, presence: true
   validates :document, uniqueness: true
+
+  def set_default_role!
+    self.role_id = 1
+  end
 end

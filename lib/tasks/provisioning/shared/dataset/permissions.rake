@@ -16,6 +16,8 @@ namespace :provisioning do
             INSERT INTO permissions (id, name, category, internal_name, created_at, updated_at) VALUES (1, 'Visualização de Home Page', 'home', 'home_index', '2022-05-12 16:27:30.019856', '2022-05-12 16:27:30.019856') ON CONFLICT DO NOTHING;
             INSERT INTO permissions (id, name, category, internal_name, created_at, updated_at) VALUES (2, 'Visualização de Clientes', 'customers', 'customers_index', '2022-05-12 16:27:30.019856', '2022-05-12 16:27:30.019856') ON CONFLICT DO NOTHING;         
             INSERT INTO permissions (id, name, category, internal_name, created_at, updated_at) VALUES (3, 'Adicionar Cliente', 'customers', 'customer_new', '2022-05-12 16:27:30.019856', '2022-05-12 16:27:30.019856') ON CONFLICT DO NOTHING; 
+            INSERT INTO permissions (id, name, category, internal_name, created_at, updated_at) VALUES (4, 'Visualização de Voluntários', 'human_resources', 'human_resources_index', '2022-05-12 16:27:30.019856', '2022-05-12 16:27:30.019856') ON CONFLICT DO NOTHING;
+            INSERT INTO permissions (id, name, category, internal_name, created_at, updated_at) VALUES (5, 'Adicionar Voluntário', 'human_resources', 'human_resource_new', '2022-05-12 16:27:30.019856', '2022-05-12 16:27:30.019856') ON CONFLICT DO NOTHING;
           SQL
           
           puts "#{prefix} Finished"

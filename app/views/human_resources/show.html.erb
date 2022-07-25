@@ -1,0 +1,20 @@
+<div class="row mt-4">
+  <div class="col-md-4"></div>
+  <div class="card col-md-4">
+    <img class="card-img-top" src="/assets/img_avatar.png" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title"><%= @human_resource.name %></h4>
+      <p class="card-text"><%= I18n.t(:phone, scope: %i[activerecord attributes human_resource]) %>: <%= @human_resource.phone %></p>
+      <p class="card-text"><%= I18n.t(:document, scope: %i[activerecord attributes human_resource]) %>: <%= @human_resource.document %></p>
+      <p class="card-text"><%= I18n.t(:birth_date, scope: %i[activerecord attributes human_resource]) %>: <%= l(@human_resource.birth_date, format: :date) %></p>
+      <p class="card-text"><%= I18n.t(:role_id, scope: %i[activerecord attributes human_resource]) %>: <%= @human_resource.role_id %></p>
+      <p class="card-text"><%= I18n.t(:status, scope: %i[activerecord attributes human_resource]) %>: <%= I18n.t(@human_resource.status, scope: %i[str_enum_attribute defaults status]) %></p>
+      <div class='text-center'>
+        <%= link_to t(:edit, scope: %i[templates buttons defaults]), edit_human_resource_path(@human_resource), class: "btn btn-primary" %>
+        <%# TODO resolver problema com link_to e mensagem de confirmação %>
+        <%= link_to t(:inactive, scope: %i[templates buttons defaults]), human_resource_path(@human_resource), method: :delete, data: { confirm: "Você tem certeza que deseja inativar #{@human_resource.name}?" }, class: "btn btn-warning" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>

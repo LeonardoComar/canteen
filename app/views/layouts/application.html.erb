@@ -39,6 +39,9 @@
                     <% if current_user.has_permission?(:customers_index) %>
                       <li><%= link_to t(:customer, scope: %i[activerecord models], count: 2), customers_path, class: "dropdown-item" %></li>
                     <% end %>
+                    <% if current_user.has_permission?(:human_resources_index) %>
+                      <li><%= link_to t(:human_resource, scope: %i[activerecord models], count: 2), human_resources_path, class: "dropdown-item" %></li>
+                    <% end %>
                   </ul>
                 </div>
                 <li>

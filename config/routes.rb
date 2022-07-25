@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/adicionar-credito', to: 'customers#new_credit', as: 'new_credit'
     post '/adicionar-credito', to: 'customers#update_credit', as: 'update_credit'
   end
+
+  resources :human_resources, path: 'voluntarios'
   
   devise_for :users
   
